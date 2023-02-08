@@ -38,16 +38,16 @@ namespace CoreHtmlToImage
             }
             else if (System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.Linux))
             {
+                
                 //Check if wkhtmltoimage package is installed on this distro in using which command
                 Process process = Process.Start(new ProcessStartInfo()
                 {
                     CreateNoWindow = true,
                     UseShellExecute = false,
-                    WorkingDirectory = "/bin/",
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
-                    FileName = "/bin/bash",
-                    Arguments = "which wkhtmltoimage"
+                    FileName = "which",
+                    Arguments = "wkhtmltoimage"
 
                 });
                 string answer = process.StandardOutput.ReadToEnd();
